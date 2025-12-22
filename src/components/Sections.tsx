@@ -84,18 +84,21 @@ const testimonials = [
     image: "/backgroundImages/yuri_image1.jpg",
     featured: true,
     cta: "Play Video",
+    height: "800px",
   },
   {
     name: "Yuri Demidov",
     location: "Moscow, Russia",
     image: "/backgroundImages/yuri_image2.jpg",
     featured: false,
+    height: "800px",
   },
   {
     name: "Yuri Demidov",
     location: "Moscow, Russia",
     image: "/backgroundImages/yuri_image.jpg",
     featured: false,
+    height: "800px",
   },
 ];
 
@@ -105,6 +108,7 @@ type Testimonial = {
   image: string;
   featured: boolean;
   cta?: string;
+  height?: string;
 };
 
 function TestimonialsSection({ testimonials }: { testimonials: Testimonial[] }) {
@@ -125,8 +129,11 @@ function TestimonialsSection({ testimonials }: { testimonials: Testimonial[] }) 
         >
           <div className="relative w-full rounded-2xl overflow-hidden border border-[#e5e8ef] shadow-[0_18px_50px_rgba(0,0,0,0.08)] group/card">
             <motion.div
-              className="h-135 md:h-145 bg-center bg-cover"
-              style={{ backgroundImage: `url('${item.image}')` }}
+              className="bg-center bg-cover"
+              style={{ 
+                backgroundImage: `url('${item.image}')`,
+                height: item.height || '500px'
+              }}
               animate={{
                 filter: hoveredIndex === null ? "blur(0px)" : hoveredIndex === index ? "blur(0px)" : "blur(8px)",
                 scale: hoveredIndex === index ? 1.05 : 1,
