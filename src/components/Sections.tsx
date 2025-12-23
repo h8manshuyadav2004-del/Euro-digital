@@ -80,22 +80,19 @@ function Sections() {
     <div className="bg-[#0b1538] text-white">
       {/* Overview / Value prop */}
       <section className="bg-white" style={{ color: 'var(--primary-navy)' }}>
-        <div className="max-w-[1325px] mx-auto px-6 md:px-8 py-16 md:py-24 grid md:grid-cols-2 gap-6 md:gap-8 items-center">
+        <div className="max-w-[1375px] mx-auto px-6 md:px-8 py-16 md:py-24 grid md:grid-cols-2 gap-6 md:gap-8 items-center">
           <div className="space-y-3 max-w-xl">
-            <p className="text-base font-semibold uppercase tracking-[0.05em]" style={{ color: 'var(--primary-navy)' }}>
-              Overview
-            </p>
-            <h2 className="text-2xl md:text-4xl font-medium leading-tight" style={{ color: 'var(--text-primary)' }}>
+            <h2 className="text-4xl md:text-5xl font-medium leading-tight " style={{ color: 'var(--text-primary)' }}>
               Everything Your Digital AI Partner Should Do
             </h2>
-            <p className="text-base md:text-[16px] tracking-[0.01em]" style={{ color: 'var(--text-tertiary)' }}>
+            <p className="text-medium md:text-[18px] tracking-[0.01em] max-w-lg p-1 text-slate-800">
               At EuroDigital, we help businesses unlock the real potential of AI
               by transforming the way they operate, communicate, and grow. Our
               AI-powered solutions are designed to reduce manual effort, improve
               efficiency, and create smarter customer experiences — all while
               integrating seamlessly with your existing systems.
             </p>
-            <div className="flex flex-col gap-3 pt-4 text-[15px]" style={{ color: 'var(--text-tertiary)' }}>
+            <div className="flex flex-col gap-2 pt-1 text-[15px]" style={{ color: 'var(--text-tertiary)' }}>
               {[
                 "AI Business Automation",
                 "AI Business Promotion",
@@ -154,10 +151,10 @@ function Sections() {
       {/* Personal Secretary grid */}
       <section className="bg-white py-16 md:py-24" style={{ color: 'var(--primary-navy)' }}>
         <div className="max-w-6xl mx-auto px-6 md:px-8 space-y-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-semibold" style={{ color: 'var(--text-primary)' }}>
+          <h2 className="text-3xl md:text-5xl font-semibold" style={{ color: 'var(--text-primary)' }}>
             Everything Your Personal Secretary Should Do
           </h2>
-          <p className="text-sm md:text-base max-w-2xl mx-auto" style={{ color: 'var(--text-secondary)' }}>
+          <p className="text-sm md:text-[18px] max-w-2xl mx-auto" style={{ color: 'var(--text-secondary)' }}>
             Baseten delivers the infrastructure, tooling, and expertise needed
             to bring great <br /> AI products to market - fast.
           </p>
@@ -206,9 +203,9 @@ function Sections() {
             <h2 className="text-3xl md:text-4xl font-semibold" style={{ color: 'var(--text-primary)' }}>
               What Your AI Executive Assistant Can Handle End-to-End
             </h2>
-            <p className="max-w-3xl mx-auto" style={{ color: 'var(--text-secondary)' }}>
+            <p className="max-w-3xl mx-auto text-medium md:text-[18px] text-slate-700">
               Baseten provides the technology, workflows, and AI expertise
-              required to launch <br /> powerful AI solutions—quickly and reliably.
+              required to launch <br /> powerful AI solutions, quickly and reliably.
             </p>
           </div>
 
@@ -227,11 +224,11 @@ function Sections() {
                     >
                       {item.step}
                     </div>
-                    <h3 className="text-lg font-semibold" style={{ color: 'var(--text-primary)' }}>
+                    <h3 className="text-2xl font-semibold" style={{ color: 'var(--text-primary)' }}>
                       {item.title}
                     </h3>
                   </div>
-                  <p className="text-sm leading-relaxed max-w-xs mx-auto" style={{ color: 'var(--text-secondary)' }}>
+                  <p className="text-lg leading-relaxed max-w-xs mx-auto" style={{ color: 'var(--text-secondary)' }}>
                     {item.desc}
                   </p>
                 </div>
@@ -259,18 +256,20 @@ function Sections() {
           {industries.map((industry) => (
             <div
               key={industry.title}
-              className="relative rounded-2xl overflow-hidden shadow-[0_16px_45px_rgba(0,0,0,0.12)]"
+              className="rounded-2xl overflow-hidden shadow-[0_16px_45px_rgba(0,0,0,0.12)] flex flex-col"
               style={{ borderWidth: '1px', borderColor: 'rgba(24, 182, 227, 0.2)' }}
             >
               <div
                 className="h-64 md:h-72 w-full bg-center bg-cover"
                 style={{ backgroundImage: `url('${industry.image}')` }}
               />
-              <div className="absolute inset-0 bg-linear-to-t from-black/35 via-black/10 to-transparent" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <span className="text-white text-3xl md:text-4xl font-normal drop-shadow-[0_8px_25px_rgba(0,0,0,0.35)]">
+              <div 
+                className="py-5 px-6 text-center"
+                style={{ backgroundColor: 'var(--bg-secondary)' }}
+              >
+                <h3 className="text-2xl md:text-3xl font-semibold" style={{ color: 'var(--text-primary)' }}>
                   {industry.title}
-                </span>
+                </h3>
               </div>
             </div>
           ))}

@@ -120,7 +120,7 @@ function Hero() {
               )}
             </h1>
 
-            <p className="mt-6 text-lg md:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
+            <p className="mt-6 text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
               {slides[currentSlide].description}
             </p>
           </motion.div>
