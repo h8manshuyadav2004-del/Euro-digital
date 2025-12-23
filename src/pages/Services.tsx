@@ -2,6 +2,8 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import FAQ from "../components/FAQ";
+import { getFAQsByServiceId } from "../data/faqData";
 
 const services = [
   {
@@ -9,7 +11,16 @@ const services = [
     title: "AI Business Automation",
     description:
       "EuroDigital's AI Business Automation solutions are built to eliminate repetitive tasks and optimize your internal workflows. We analyze your business processes and design automation systems that save time, reduce errors, and allow your team to focus on high-value work.",
-    image: "/backgroundImages/ai_automation.png",
+    image: "/servicesImages/Ai-business-automation.png",
+    features: [
+      "Lead capture, routing, and automated follow-ups",
+      "CRM automation and third-party tool integrations",
+      "Internal workflow automation",
+      "Data processing and reporting",
+      "Task management and operational optimisation",
+      "Industry Specific AI Use Cases"
+    ],
+    detailedDescription: "Each automation is customised to your business needs, ensuring efficiency without disrupting your current operations."
   },
   {
     id: "ai-business-promotion",
@@ -17,6 +28,14 @@ const services = [
     description:
       "Our AI Business Promotion solutions help you reach the right audience at the right time with personalized, data-driven strategies. By leveraging AI, we improve engagement, increase conversions, and make your marketing efforts more efficient.",
     image: "/backgroundImages/ai_promotion.png",
+    features: [
+      "Automated marketing workflows",
+      "Personalised customer communication",
+      "Intelligent campaign optimisation",
+      "AI-driven content distribution",
+      "Performance tracking and insights"
+    ],
+    detailedDescription: "EuroDigital enables businesses to scale their marketing efforts while maintaining consistency and quality across all channels."
   },
   {
     id: "ai-agent-talk-time",
@@ -24,6 +43,15 @@ const services = [
     description:
       "Our AI-powered chatbots are designed to handle customer interactions accurately and professionally, around the clock. These chatbots are trained using your business data, ensuring responses remain relevant, reliable, and aligned with your brand voice.",
     image: "/backgroundImages/ai_agent.png",
+    features: [
+      "Natural language processing for human-like conversations",
+      "Multi-language support for global customer base",
+      "Context-aware responses based on conversation history",
+      "Seamless handoff to human agents when needed",
+      "Learning capabilities that improve over time",
+      "Integration with CRM and ticketing systems"
+    ],
+    detailedDescription: "Our AI chatbots provide instant, accurate responses to customer queries 24/7, reducing wait times and improving customer satisfaction. Built with advanced NLP technology, these chatbots understand context, sentiment, and intent, delivering personalized experiences that feel natural and helpful. They handle routine inquiries efficiently while escalating complex issues to human agents."
   },
   {
     id: "ai-automated-chatbot",
@@ -31,6 +59,15 @@ const services = [
     description:
       "EuroDigital's AI Voice Agents manage real conversations with customers using natural, human-like speech. These agents can handle calls efficiently while maintaining a professional tone and consistency.",
     image: "/backgroundImages/ai_bussiness.png",
+    features: [
+      "Natural voice synthesis with human-like intonation",
+      "Real-time speech recognition and processing",
+      "Customizable voice personalities to match your brand",
+      "Multi-language voice support for global operations",
+      "Call routing and transfer capabilities",
+      "Detailed call analytics and performance metrics"
+    ],
+    detailedDescription: "Revolutionize your customer service with AI voice agents that sound and respond like real humans. Our voice technology handles high call volumes without compromising quality, ensuring every customer receives prompt, professional attention. From appointment scheduling to order tracking, our voice agents manage it all with natural conversation flow."
   },
   {
     id: "ai-addon-services",
@@ -38,6 +75,15 @@ const services = [
     description:
       "Our AI Add-on Services allow businesses to enhance their existing tools and platforms with advanced AI features. These add-ons are flexible, scalable, and designed to evolve with your business.",
     image: "/backgroundImages/ai_services.png",
+    features: [
+      "Plug-and-play AI modules for existing systems",
+      "Custom API integrations with your current infrastructure",
+      "Scalable solutions that grow with your business needs",
+      "Regular updates and feature enhancements",
+      "Dedicated technical support and training",
+      "Cloud-based deployment for easy accessibility"
+    ],
+    detailedDescription: "Enhance your existing business tools with powerful AI capabilities without the need for complete system overhaul. Our modular add-on services integrate seamlessly with your current technology stack, adding intelligence, automation, and advanced analytics to your workflows. Whether you need predictive insights, automated reporting, or smart recommendations, we have the right add-on for you."
   },
   {
     id: "industry-specific",
@@ -45,6 +91,15 @@ const services = [
     description:
       "We understand that every industry has unique challenges. That's why EuroDigital delivers AI solutions specifically designed for different business domains, ensuring practical and measurable impact.",
     image: "/backgroundImages/ai_users.png",
+    features: [
+      "Healthcare: Patient management and diagnostic assistance systems",
+      "Retail: Inventory optimization and personalized shopping experiences",
+      "Finance: Fraud detection and risk assessment solutions",
+      "Manufacturing: Predictive maintenance and quality control",
+      "Education: Personalized learning and student performance tracking",
+      "Hospitality: Guest experience management and booking automation"
+    ],
+    detailedDescription: "Every industry faces unique challenges that require specialized solutions. Our industry-specific AI implementations are built on deep domain expertise and proven methodologies. We work closely with industry leaders to understand pain points and deliver solutions that address real business problems, ensuring quick adoption and tangible results that matter to your bottom line."
   },
 ];
 
@@ -57,7 +112,7 @@ function Services() {
       
       <main className="pt-20">
         {/* Service Navigation - Interactive */}
-        <section className="bg-linear-to-r from-cyan-50/60 to-blue-50/60 sticky top-20 z-40">
+        <section style={{ background: 'linear-gradient(to right, rgba(24, 182, 227, 0.08), rgba(34, 211, 238, 0.08))' }}>
           <div className="max-w-7xl mx-auto px-6 md:px-8">
             <div className="flex justify-center items-center gap-0 py-3">
               {services.map((service, index) => (
@@ -65,9 +120,9 @@ function Services() {
                   key={service.id}
                   onClick={() => setActiveService(index)}
                   className={`px-6 py-3 whitespace-nowrap text-sm font-medium border-r border-white/40 last:border-r-0 transition-all duration-300 cursor-pointer ${
-                    activeService === index
-                      ? "bg-cyan-400/90 text-gray-800"
-                      : "text-cyan-600 hover:bg-white/50"
+                    activeService === index 
+                      ? 'bg-cyan-400 text-slate-800' 
+                      : 'bg-transparent text-blue-500 hover:bg-white/50'
                   }`}
                 >
                   {service.title}
@@ -78,7 +133,7 @@ function Services() {
         </section>
 
         {/* Service Content */}
-        <section className="py-16 md:py-24">
+        <section className="py-16 md:py-24" style={{ background: 'linear-gradient(to right, white 50%, rgba(224, 242, 254, 0.6) 50%)' }}>
           <div className="max-w-7xl mx-auto px-6 md:px-8">
             <motion.div
               key={activeService}
@@ -88,24 +143,47 @@ function Services() {
               transition={{ duration: 0.5 }}
               className="grid md:grid-cols-2 gap-12 items-center"
             >
-              <div className="space-y-6">
-                <h1 className="text-4xl md:text-5xl font-semibold text-gray-900">
+              <div className="space-y-3">
+                <h1 className="text-4xl md:text-5xl font-semibold text-slate-800">
                   {services[activeService].title}
                 </h1>
-                <p className="text-lg text-gray-600 leading-relaxed">
+                <p className="text-lg leading-relaxed text-slate-600">
                   {services[activeService].description}
                 </p>
-                <div className="flex gap-4">
-                  <button className="rounded-full bg-[#86c440] hover:bg-[#76b43a] text-white font-semibold px-8 py-3 shadow-lg transition-colors">
-                    Get Started
+                
+                {services[activeService].features && (
+                  <div className="space-y-3 ml-4">
+                    <ul className="space-y-2">
+                        {services[activeService].features.map((feature, idx) => (
+                          <li key={idx} className="flex items-start gap-2">
+                            <span className="text-xs mt-1 text-slate-500">●</span>
+                            <span className="text-slate-600">{feature}</span>
+                          </li>
+                        ))}
+                    </ul>
+                  </div>
+                )}
+                {services[activeService].detailedDescription && (
+                  <p className="text-base leading-relaxed text-slate-500">
+                    {services[activeService].detailedDescription}
+                  </p>
+                )}
+                
+                <div className="flex gap-4 pt-4">
+                  <button 
+                    className="rounded-full bg-blue-500 text-white font-medium px-6 py-2 shadow-lg transition-all hover:shadow-xl hover:scale-105 hover:bg-blue-600"
+                  >
+                    Try For Sales
                   </button>
-                  <button className="rounded-full border-2 border-gray-300 text-gray-700 hover:bg-gray-50 font-semibold px-8 py-3 transition-colors">
+                  <button 
+                    className="rounded-full font-medium px-6 py-2 transition-all hover:bg-gray-100 border-2 border-slate-800 text-slate-800 bg-transparent"
+                  >
                     Learn More
                   </button>
                 </div>
               </div>
 
-              <div className="relative">
+              <div className="relative ">
                 <motion.img
                   key={services[activeService].image}
                   src={services[activeService].image}
@@ -119,6 +197,209 @@ function Services() {
             </motion.div>
           </div>
         </section>
+
+        {/* Full Width Image Section */}
+        <section className="w-full max-w-[1425px] mx-auto rounded-3xl overflow-hidden mt-10">
+          <img
+            src="/servicesImages/Ai-business-automation1.png"
+            alt="AI Business Automation"
+            className="w-full h-auto object-cover"
+            style={{ maxHeight: '600px' }}
+          />
+        </section>
+
+        {/* Pricing Section */}
+        <section className="py-16 md:py-24 bg-gradient-to-b from-white to-cyan-50/30">
+          <div className="max-w-7xl mx-auto px-6 md:px-8">
+            {/* Heading with Billing Toggle */}
+            <div className="flex justify-between items-center mb-16">
+              <h1 className="text-4xl md:text-5xl font-bold text-slate-800">
+                Pay only for what you use
+              </h1>
+              
+              <div className="flex items-center gap-8">
+                <div className="flex items-center gap-3 cursor-pointer hover:opacity-80 transition-opacity">
+                  <div className="w-6 h-6 rounded-full border-2 border-gray-200 bg-gray-200"></div>
+                  <span className="text-lg font-medium text-gray-600">Yearly</span>
+                </div>
+                <div className="flex items-center gap-3 cursor-pointer hover:opacity-80 transition-opacity">
+                  <div className="w-6 h-6 rounded-full border-2 border-cyan-400 bg-cyan-400 flex items-center justify-center">
+                    <div className="w-3 h-3 rounded-full bg-white"></div>
+                  </div>
+                  <span className="text-lg font-medium text-slate-800">Monthly</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              {/* AI Startup Card */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="bg-gray-100 rounded-2xl p-8 min-h-[700px]"
+              >
+                <h3 className="text-4xl font-bold mb-4 text-slate-800">
+                  AI Startup
+                </h3>
+                <p className="text-gray-600 mb-6">
+                For startups and publishers
+                </p>
+                <p className="text-sm font-semibold mb-4 text-slate-800">
+                  <span className="text-5xl text-slate-500">$399</span> Per Month
+                </p>
+                <div className="space-y-4 mb-8">
+                <button 
+                    className="w-full rounded-md bg-blue-500 text-white font-medium px-6 py-3 mt-5 cursor-pointer transition-all hover:shadow-lg hover:scale-105 hover:bg-blue-600"
+                  >
+                    Get Started
+                  </button>
+                  <div className="flex items-start gap-2 mt-10">
+                    <span className="text-[#6FAA2D] text-xl">✓</span>
+                    <span className="text-gray-500">Basic dashboard</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-[#6FAA2D] text-xl">✓</span>
+                    <span className="text-gray-500">Limited API access</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-[#6FAA2D] text-xl">✓</span>
+                    <span className="text-gray-500">Email Support</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-[#6FAA2D] text-xl">✓</span>
+                    <span className="text-gray-500">2 Agents</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-[#6FAA2D] text-xl">✓</span>
+                    <span className="text-gray-500">Basic analytics</span>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* AI Business Card */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="bg-gray-100 rounded-2xl p-8 min-h-[700px] border-2 border-cyan-400"
+              >
+                <h3 className="text-4xl font-bold mb-4 text-slate-800">
+                  AI Business
+                </h3>
+                <p className="text-gray-600 mb-6">
+                For rapidly scaling startups and publishers
+                </p>
+                <p className="text-sm font-semibold mb-4 text-slate-800">
+                  <span className="text-5xl text-slate-500">$699</span> Per Month
+                </p>
+                <div className="space-y-4 mb-8">
+                <button 
+                    className="w-full rounded-md bg-blue-500 text-white font-medium px-6 py-3 mt-5 transition-all hover:shadow-lg hover:scale-105 hover:bg-blue-600"
+                  >
+                    Get Started
+                  </button>
+                  <div className="flex items-start gap-2 mt-10">
+                    <span className="text-[#6FAA2D] text-xl">✓</span>
+                    <span className="text-gray-500">Advanced dashboard</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-[#6FAA2D] text-xl">✓</span>
+                    <span className="text-gray-500">Priority API access</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-[#6FAA2D] text-xl">✓</span>
+                    <span className="text-gray-500">Live chat support</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-[#6FAA2D] text-xl">✓</span>
+                    <span className="text-gray-500">5 Agents</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-[#6FAA2D] text-xl">✓</span>
+                    <span className="text-gray-500">Advanced analytics</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-[#6FAA2D] text-xl">✓</span>
+                    <span className="text-gray-500">Custom branding</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-[#6FAA2D] text-xl">✓</span>
+                    <span className="text-gray-500">Call recording</span>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* AI Enterprise Card */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="bg-gray-100 rounded-2xl p-8 min-h-[700px]"
+              >
+                <h3 className="text-4xl font-bold mb-4 text-slate-800">
+                  AI Enterprise
+                </h3>
+                <p className="text-gray-600 mb-6">
+                  Advanced solutions for large enterprises with custom needs
+                </p>
+                <p className="text-sm font-semibold mb-4 text-slate-800">
+                  <span className="text-5xl text-slate-500">$Custom</span> 
+                </p>
+                <div className="space-y-4 mb-8">
+                <button 
+                    className="w-full rounded-md bg-blue-500 text-white font-medium px-6 py-3 mt-5 transition-all hover:shadow-lg hover:scale-105 hover:bg-blue-600"
+                  >
+                    Contact Sales
+                  </button>
+                  <div className="flex items-start gap-2 mt-10">
+                    <span className="text-[#6FAA2D] text-xl">✓</span>
+                    <span className="text-gray-500">Full-featured dashboard</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-[#6FAA2D] text-xl">✓</span>
+                    <span className="text-gray-500">Unlimited API calls</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-[#6FAA2D] text-xl">✓</span>
+                    <span className="text-gray-500">24/7 dedicated support</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-[#6FAA2D] text-xl">✓</span>
+                    <span className="text-gray-500">5 + Customisation agents</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-[#6FAA2D] text-xl">✓</span>
+                    <span className="text-gray-500">Advanced analytics</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-[#6FAA2D] text-xl">✓</span>
+                    <span className="text-gray-500">Custom AI models</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-[#6FAA2D] text-xl">✓</span>
+                    <span className="text-gray-500">SLA guarantee</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-[#6FAA2D] text-xl">✓</span>
+                    <span className="text-gray-500">Priority processing</span>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ Section - Service Specific */}
+        {getFAQsByServiceId(services[activeService].id) && (
+          <FAQ
+            faqs={getFAQsByServiceId(services[activeService].id)!.faqs}
+            subtitle={getFAQsByServiceId(services[activeService].id)!.subtitle}
+          />
+        )}
       </main>
 
       <Footer />

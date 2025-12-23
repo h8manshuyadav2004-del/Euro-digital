@@ -5,7 +5,7 @@ import Footer from '../components/Footer'
 
 function Home() {
   return (
-    <div className="min-h-screen bg-[#0b1538] text-white">
+    <div className="min-h-screen text-white" style={{ backgroundColor: 'var(--bg-dark)' }}>
       <Header />
       <main className="pt-20">
         <Hero />

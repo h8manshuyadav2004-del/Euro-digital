@@ -129,7 +129,17 @@ function Hero() {
         {/* Buttons */}
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link to="/">
-            <button className="rounded-2xl bg-[#86c440] hover:bg-[#76b43a] text-[#0f1f0f] font-semibold px-9 py-4 shadow-[0_14px_40px_rgba(0,0,0,0.25)] border border-[#7dbf3b] transition-colors text-lg cursor-pointer">
+            <button 
+              className="rounded-2xl font-semibold px-9 py-4 shadow-[0_14px_40px_rgba(0,0,0,0.25)] transition-colors text-lg cursor-pointer"
+              style={{ 
+                backgroundColor: 'var(--primary-green)', 
+                color: 'var(--primary-navy)',
+                borderColor: 'var(--primary-green-dark)',
+                borderWidth: '1px'
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'var(--primary-green-dark)'}
+              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'var(--primary-green)'}
+            >
               Book A Demo
             </button>
           </Link>

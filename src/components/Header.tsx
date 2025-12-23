@@ -18,33 +18,42 @@ function Header() {
         {/* Navigation */}
         <nav className="hidden md:flex items-center gap-10">
           <Link to="/">
-            <span className="relative text-[#0f1f38] font-medium tracking-wide group">
+            <span className="relative font-medium tracking-wide group" style={{ color: 'var(--primary-navy)' }}>
               Home
-              <span className="absolute left-0 -bottom-1 w-0 h-px bg-[#0f1f38] transition-all duration-300 ease-in-out group-hover:w-full"></span>
+              <span className="absolute left-0 -bottom-1 w-0 h-px transition-all duration-300 ease-in-out group-hover:w-full" style={{ backgroundColor: 'var(--primary-navy)' }}></span>
             </span>
           </Link>
           <Link to="/services">
-            <span className="relative text-[#0f1f38] font-medium tracking-wide group">
+            <span className="relative font-medium tracking-wide group" style={{ color: 'var(--primary-navy)' }}>
               Services
-              <span className="absolute left-0 -bottom-1 w-0 h-px bg-[#0f1f38] transition-all duration-300 ease-in-out group-hover:w-full"></span>
+              <span className="absolute left-0 -bottom-1 w-0 h-px transition-all duration-300 ease-in-out group-hover:w-full" style={{ backgroundColor: 'var(--primary-navy)' }}></span>
             </span>
           </Link>
           <Link to="/why-choose-us">
-            <span className="relative text-[#0f1f38] font-medium tracking-wide group">
+            <span className="relative font-medium tracking-wide group" style={{ color: 'var(--primary-navy)' }}>
               Why Choose Us
-              <span className="absolute left-0 -bottom-1 w-0 h-px bg-[#0f1f38] transition-all duration-300 ease-in-out group-hover:w-full"></span>
+              <span className="absolute left-0 -bottom-1 w-0 h-px transition-all duration-300 ease-in-out group-hover:w-full" style={{ backgroundColor: 'var(--primary-navy)' }}></span>
             </span>
           </Link>
           <Link to="/contact">
-            <span className="relative text-[#0f1f38] font-medium tracking-wide group">
+            <span className="relative font-medium tracking-wide group" style={{ color: 'var(--primary-navy)' }}>
               Contact
-              <span className="absolute left-0 -bottom-1 w-0 h-px bg-[#0f1f38] transition-all duration-300 ease-in-out group-hover:w-full"></span>
+              <span className="absolute left-0 -bottom-1 w-0 h-px transition-all duration-300 ease-in-out group-hover:w-full" style={{ backgroundColor: 'var(--primary-navy)' }}></span>
             </span>
           </Link>
         </nav>
 
         <Link to="/">
-          <button className="rounded-md bg-[#18b6e3] hover:bg-[#129ec6] text-slate-800 font-semibold px-5 py-2.5 shadow-[0_10px_25px_rgba(0,0,0,0.12)] border border-[#0ea5d9] transition-colors cursor-pointer">
+          <button 
+            className="rounded-md text-slate-800 font-semibold px-5 py-2.5 shadow-[0_10px_25px_rgba(0,0,0,0.12)] transition-colors cursor-pointer"
+            style={{ 
+              backgroundColor: 'var(--primary-blue)', 
+              borderColor: 'var(--primary-blue-dark)',
+              borderWidth: '1px'
+            }}
+            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'var(--primary-blue-dark)'}
+            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'var(--primary-blue)'}
+          >
             Book Consultation
           </button>
         </Link>
