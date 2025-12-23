@@ -123,7 +123,7 @@ function Sections() {
           </div>
 
           <div className="relative flex justify-end">
-            <div className="relative w-full md:w-[120%] md:-mr-12 lg:-mr-20">
+            <div className="relative w-full md:w-[120%] md:-mr-12 lg:-mr-20 md:-mt-16">
               <div className="relative">
                 <div 
                   className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 md:w-24 md:h-24 rounded-full border-2 border-white/80 grid place-items-center text-white z-10 backdrop-blur-sm"
@@ -140,7 +140,7 @@ function Sections() {
                 <img
                   src="/backgroundImages/sprint.png"
                   alt="Sprint Dashboard Preview"
-                  className="w-full h-[550px] rounded-2xl shadow-2xl"
+                  className="w-full h-[650px] md:h-[750px] object-cover rounded-2xl shadow-2xl"
                 />
               </div>
             </div>
@@ -149,26 +149,30 @@ function Sections() {
       </section>
 
       {/* Personal Secretary grid */}
-      <section className="bg-white py-20 md:py-32" style={{ color: 'var(--primary-navy)' }}>
+      <section className="bg-white py-20 md:py-16" style={{ color: 'var(--primary-navy)' }}>
         <div className="max-w-7xl mx-auto px-6 md:px-12 space-y-6 text-center mb-14 md:mb-20">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold" style={{ color: 'var(--text-primary)' }}>
             Everything Your Personal Secretary Should Do
           </h2>
-          <p className="text-base md:text-lg max-w-3xl mx-auto leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+          <p className="text-base md:text-[19px] max-w-3xl mx-auto leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
             Baseten delivers the infrastructure, tooling, and expertise needed
             to bring great AI products to market - fast.
           </p>
         </div>
 
         <div className="max-w-7xl mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-8 md:gap-10">
-          {cards.map((card) => (
+          {cards.map((card) => {
+            const isAutomation = card.title === "AI Business Automation";
+            return (
             <div
               key={card.title}
               className="rounded-2xl flex flex-col p-5 md:p-6 hover:shadow-2xl transition-shadow duration-300"
               style={{ backgroundColor: 'var(--bg-secondary)' }}
             >
               <div
-                className="h-72 md:h-80 w-full bg-center bg-cover rounded-xl shadow-lg"
+                className={`w-full bg-center bg-cover rounded-xl shadow-lg ${
+                  isAutomation ? "h-80 md:h-96 -mt-2 md:-mt-4" : "h-72 md:h-80"
+                }`}
                 style={{ backgroundImage: `url('${card.image}')` }}
               />
               <div className="pt-6 md:pt-8 space-y-4 text-left">
@@ -192,12 +196,13 @@ function Sections() {
                 </p>
               </div>
             </div>
-          ))}
+          );
+          })}
         </div>
       </section>
 
       {/* Executive Assistant timeline */}
-      <section className="bg-white py-20 md:py-32" style={{ color: 'var(--primary-navy)' }}>
+      <section className="bg-white py-20 md:py-16" style={{ color: 'var(--primary-navy)' }}>
         <div className="max-w-7xl mx-auto px-6 md:px-12 space-y-12 md:space-y-16">
           <div className="text-center space-y-6">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold" style={{ color: 'var(--text-primary)' }}>
@@ -239,12 +244,12 @@ function Sections() {
       </section>
 
       {/* Industry specific AI use cases */}
-      <section className="bg-white py-20 md:py-32" style={{ color: 'var(--primary-navy)' }}>
+      <section className="bg-white py-20 md:py-20" style={{ color: 'var(--primary-navy)' }}>
         <div className="max-w-7xl mx-auto px-6 md:px-12 space-y-6 text-center mb-14 md:mb-20">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold" style={{ color: 'var(--text-primary)' }}>
+          <h2 className="text-4xl md:text-6xl lg:text-6xl font-semibold" style={{ color: 'var(--text-primary)' }}>
             Industry Specific AI Use Cases
           </h2>
-          <p className="text-base md:text-lg max-w-4xl mx-auto leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+          <p className="text-base md:text-[19px] max-w-4xl mx-auto leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
             We understand that every industry has unique challenges. That&apos;s
             why EuroDigital delivers AI solutions specifically designed for
             different business domains, ensuring practical and measurable

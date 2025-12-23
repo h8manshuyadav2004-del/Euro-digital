@@ -9,6 +9,8 @@ import AIBusinessAutomation from './pages/AIBusinessAutomation'
 import AIBusinessPromotion from './pages/AIBusinessPromotion'
 import AIAutomatedChatbot from './pages/AIAutomatedChatbot'
 import IndustrySpecificAI from './pages/IndustrySpecificAI'
+import PrivacyPolicy from './pages/PrivacyPolicy'
+import TermsAndConditions from './pages/TermsAndConditions'
 
 function App() {
   return (
@@ -25,6 +27,10 @@ function App() {
       <Route path="/ai-business-promotion" element={<AIBusinessPromotion />} />
       <Route path="/ai-automated-chatbot" element={<AIAutomatedChatbot />} />
       <Route path="/industry-specific" element={<IndustrySpecificAI />} />
+      
+      {/* Legal Pages */}
+      <Route path="/privacy" element={<PrivacyPolicy />} />
+      <Route path="/terms" element={<TermsAndConditions />} />
     </Routes>
   )
 }

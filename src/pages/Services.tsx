@@ -202,7 +202,7 @@ function Services() {
         </section>
 
         {/* Pricing Section */}
-        <section className="py-20 md:py-32 bg-gradient-to-b from-white to-cyan-50/30">
+        <section className="py-16 md:py-16 bg-gradient-to-b from-white to-cyan-50/30">
           <div className="max-w-7xl mx-auto px-6 md:px-12">
             {/* Heading with Billing Toggle */}
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-16 md:mb-20">
@@ -229,29 +229,29 @@ function Services() {
                 <p className="text-sm font-semibold mb-6 text-slate-800">
                   <span className="text-5xl md:text-6xl text-slate-500">$399</span> <span className="text-lg">Per Month</span>
                 </p>
-                <div className="space-y-4 mb-8">
+                <div className="space-y-4 mb-8 ">
                   <button 
                     className="w-full rounded-lg bg-[#40BEF1] hover:bg-cyan-500 text-black font-semibold px-6 py-3 cursor-pointer transition-all hover:shadow-lg"
                   >
                     Learn More
                   </button>
-                  <div className="flex items-start gap-3 mt-10">
+                  <div className="flex items-start gap-3 mt-10 text-center">
                     <span className="text-[#6FAA2D] text-xl font-bold">✓</span>
                     <span className="text-gray-600 text-base">Basic dashboard</span>
                   </div>
-                  <div className="flex items-start gap-3">
+                  <div className="flex items-start gap-3 text-center">
                     <span className="text-[#6FAA2D] text-xl font-bold">✓</span>
                     <span className="text-gray-600 text-base">Limited API access</span>
                   </div>
-                  <div className="flex items-start gap-3">
+                  <div className="flex items-start gap-3 text-center">
                     <span className="text-[#6FAA2D] text-xl font-bold">✓</span>
                     <span className="text-gray-600 text-base">Email Support</span>
                   </div>
-                  <div className="flex items-start gap-3">
+                  <div className="flex items-start gap-3 text-center">
                     <span className="text-[#6FAA2D] text-xl font-bold">✓</span>
                     <span className="text-gray-600 text-base">2 Agents</span>
                   </div>
-                  <div className="flex items-start gap-3">
+                  <div className="flex items-start gap-3 text-center">
                     <span className="text-[#6FAA2D] text-xl font-bold">✓</span>
                     <span className="text-gray-600 text-base">Basic analytics</span>
                   </div>

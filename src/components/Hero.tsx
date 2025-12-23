@@ -52,10 +52,10 @@ function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[radial-gradient(circle_at_20%_20%,#1c2e6c_0%,#0d1438_30%,#0c1235_52%,#0d1e64_72%,#2a78ff_100%)] text-white">
+    <section className="relative min-h-[75vh] md:min-h-[80vh] flex items-center justify-center overflow-hidden bg-[radial-gradient(circle_at_20%_20%,#1c2e6c_0%,#0d1438_30%,#0c1235_52%,#0d1e64_72%,#2a78ff_100%)] text-white">
       {/* Atmospheric overlays */}
       <div className="absolute inset-0 bg-linear-to-b from-transparent via-[#0b1233]/55 to-[#2d78ff]/65" />
-      <div className="absolute inset-x-0 bottom-0 h-[38vh] bg-linear-to-t from-[#2f83ff]/45 to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 h-[30vh] bg-linear-to-t from-[#2f83ff]/45 to-transparent" />
 
       {/* Navigation Arrows */}
       <button
@@ -99,7 +99,7 @@ function Hero() {
       </button>
 
       {/* Content */}
-      <div className="relative z-10 max-w-6xl mx-auto px-6 md:px-12 pt-36 md:pt-40 pb-40 md:pb-48 text-center">
+      <div className="relative z-10 max-w-6xl mx-auto px-6 md:px-12 pt-24 md:pt-28 pb-28 md:pb-32 text-center">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentSlide}
@@ -108,7 +108,7 @@ function Hero() {
             exit={{ opacity: 0, x: -100 }}
             transition={{ duration: 0.5, ease: "easeInOut" }}
           >
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-semibold leading-tight tracking-tight drop-shadow-[0_10px_40px_rgba(0,0,0,0.35)]">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-semibold leading-tight tracking-tight drop-shadow-[0_10px_40px_rgba(0,0,0,0.35)] mt-20">
               {slides[currentSlide].title.includes("Transform Your Business") ? (
                 <>
                   Unlock the Power of AI to

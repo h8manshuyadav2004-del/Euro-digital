@@ -1,6 +1,6 @@
 import { Linkedin, Facebook, Youtube, Twitter } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 
 const quickLinks = [
   "Services",
@@ -58,48 +58,79 @@ type Testimonial = {
 
 function TestimonialsSection({ testimonials }: { testimonials: Testimonial[] }) {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const [isPaused, setIsPaused] = useState(false);
 
-  useEffect(() => {
-    const scrollContainer = scrollContainerRef.current;
-    if (!scrollContainer) return;
+  const scrollLeft = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({
+        left: -500,
+        behavior: 'smooth'
+      });
+    }
+  };
 
-    let scrollAmount = 0;
-    const scrollSpeed = 0.5;
-
-    const scroll = () => {
-      if (!isPaused) {
-        scrollAmount += scrollSpeed;
-        if (scrollAmount >= scrollContainer.scrollWidth / 2) {
-          scrollAmount = 0;
-        }
-        scrollContainer.scrollLeft = scrollAmount;
-      }
-      requestAnimationFrame(scroll);
-    };
-
-    const animationId = requestAnimationFrame(scroll);
-
-    return () => cancelAnimationFrame(animationId);
-  }, [isPaused]);
-
-  // Duplicate testimonials for seamless loop
-  const duplicatedTestimonials = [...testimonials, ...testimonials];
+  const scrollRight = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({
+        left: 500,
+        behavior: 'smooth'
+      });
+    }
+  };
 
   return (
-    <div className="relative mt-12 md:mt-16 overflow-hidden">
+    <div className="relative mt-12 md:mt-16">
+      {/* Left Arrow */}
+      <button
+        onClick={scrollLeft}
+        className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 md:w-14 md:h-14 rounded-full bg-white/90 hover:bg-white border border-gray-200 flex items-center justify-center shadow-xl transition-all duration-200 hover:scale-110 cursor-pointer"
+        aria-label="Scroll left"
+      >
+        <svg
+          className="w-6 h-6 text-slate-800"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M15 19l-7-7 7-7"
+          />
+        </svg>
+      </button>
+
+      {/* Right Arrow */}
+      <button
+        onClick={scrollRight}
+        className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 md:w-14 md:h-14 rounded-full bg-white/90 hover:bg-white border border-gray-200 flex items-center justify-center shadow-xl transition-all duration-200 hover:scale-110 cursor-pointer"
+        aria-label="Scroll right"
+      >
+        <svg
+          className="w-6 h-6 text-slate-800"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M9 5l7 7-7 7"
+          />
+        </svg>
+      </button>
+
       <div
         ref={scrollContainerRef}
-        className="flex gap-6 overflow-x-hidden px-6 md:px-8"
-        onMouseEnter={() => setIsPaused(true)}
-        onMouseLeave={() => setIsPaused(false)}
-        style={{ scrollBehavior: 'auto' }}
+        className="flex gap-6 overflow-x-auto px-6 md:px-8 pb-4 scrollbar-hide"
+        style={{ scrollBehavior: 'smooth', scrollbarWidth: 'none', msOverflowStyle: 'none' }}
       >
-        {duplicatedTestimonials.map((item: Testimonial, index: number) => (
+        {testimonials.map((item: Testimonial, index: number) => (
           <div
             key={`${item.name}-${index}`}
-            className="bg-white rounded-2xl p-8 shadow-[0_4px_24px_rgba(0,0,0,0.08)] border border-gray-100 hover:shadow-[0_8px_32px_rgba(0,0,0,0.12)] transition-all duration-300 shrink-0"
-            style={{ width: '480px', maxWidth: '90vw' }}
+            className="bg-white rounded-2xl p-8 shadow-[0_4px_24px_rgba(0,0,0,0.08)] border border-gray-100 hover:shadow-[0_8px_32px_rgba(0,0,0,0.12)] transition-all duration-300 shrink-0 flex flex-col"
+            style={{ width: '480px', maxWidth: '90vw', minHeight: '500px' }}
           >
             {/* Quote Icon */}
             <div className="mb-6">
@@ -114,26 +145,26 @@ function TestimonialsSection({ testimonials }: { testimonials: Testimonial[] }) 
             </div>
 
             {/* Testimonial Text */}
-            <p className="text-[15px] leading-relaxed mb-8 whitespace-pre-line" style={{ color: 'var(--text-secondary)' }}>
+            <p className="text-[15px] leading-relaxed mb-auto whitespace-pre-line" style={{ color: 'var(--text-secondary)' }}>
               {item.text}
             </p>
 
             {/* Person Info */}
-            <div className="flex items-center gap-4 pt-6 border-t border-gray-100 mt-auto">
+            <div className="flex items-center gap-4 pt-6 mt-6 border-t border-gray-100">
               <img
                 src={item.image}
                 alt={item.name}
-                className="w-14 h-14 rounded-full object-cover border-2 shrink-0"
+                className="w-16 h-16 rounded-full object-cover border-2 shrink-0"
                 style={{ borderColor: 'var(--primary-blue-light)' }}
               />
-              <div>
-                <h4 className="font-semibold text-base" style={{ color: 'var(--text-primary)' }}>
+              <div className="flex-1">
+                <h4 className="font-semibold text-base leading-tight" style={{ color: 'var(--text-primary)' }}>
                   {item.name}
                 </h4>
-                <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>
+                <p className="text-sm mt-1 leading-tight" style={{ color: 'var(--text-secondary)' }}>
                   {item.role}
                 </p>
-                <p className="text-sm font-medium" style={{ color: 'var(--primary-blue)' }}>
+                <p className="text-sm font-medium mt-1 leading-tight" style={{ color: 'var(--primary-blue)' }}>
                   {item.company}
                 </p>
               </div>
@@ -141,16 +172,6 @@ function TestimonialsSection({ testimonials }: { testimonials: Testimonial[] }) 
           </div>
         ))}
       </div>
-
-      {/* Gradient Overlays */}
-      <div 
-        className="absolute left-0 top-0 bottom-0 w-24 pointer-events-none"
-        style={{ background: 'linear-gradient(to right, white, transparent)' }}
-      />
-      <div 
-        className="absolute right-0 top-0 bottom-0 w-24 pointer-events-none"
-        style={{ background: 'linear-gradient(to left, white, transparent)' }}
-      />
     </div>
   );
 }
@@ -178,7 +199,7 @@ function Footer() {
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           {/* Top section - Logo */}
           <div 
-            className="flex items-center justify-between pb-10 md:pb-12"
+            className="flex items-center justify-between "
             style={{ borderBottom: '1px solid rgba(24, 182, 227, 0.15)' }}
           >
             <Link to="/">
@@ -324,11 +345,11 @@ function Footer() {
             
             {/* Legal Links */}
             <div className="flex items-center justify-center gap-5 text-sm pb-2" style={{ color: '#9ca3af' }}>
-              <Link to="/privacy-policy" className="hover:text-gray-600 transition-colors">
+              <Link to="/privacy" className="hover:text-gray-600 transition-colors">
                 Privacy Policy
               </Link>
               <span className="text-gray-300">|</span>
-              <Link to="/terms-and-conditions" className="hover:text-gray-600 transition-colors">
+              <Link to="/terms" className="hover:text-gray-600 transition-colors">
                 Terms and Conditions
               </Link>
             </div>
