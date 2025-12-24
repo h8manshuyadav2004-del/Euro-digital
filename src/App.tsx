@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import Services from './pages/Services'
 import Contact from './pages/Contact'
+import ServicesLayout from './layouts/ServicesLayout'
 import AIAddonServices from './pages/AIAddonServices'
 import AIAgentTalkTime from './pages/AIAgentTalkTime'
 import AIBusinessAutomation from './pages/AIBusinessAutomation'
@@ -16,17 +17,19 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/services" element={<Services />} />
       <Route path="/why-choose-us" element={<Home />} />
       <Route path="/contact" element={<Contact />} />
       
-      {/* Individual Service Pages */}
-      <Route path="/ai-addon-services" element={<AIAddonServices />} />
-      <Route path="/ai-agent-talk-time" element={<AIAgentTalkTime />} />
-      <Route path="/ai-business-automation" element={<AIBusinessAutomation />} />
-      <Route path="/ai-business-promotion" element={<AIBusinessPromotion />} />
-      <Route path="/ai-automated-chatbot" element={<AIAutomatedChatbot />} />
-      <Route path="/industry-specific" element={<IndustrySpecificAI />} />
+      {/* Services with Nested Routes */}
+      <Route path="/services" element={<ServicesLayout />}>
+        <Route index element={<Services />} />
+        <Route path="ai-business-automation" element={<AIBusinessAutomation />} />
+        <Route path="ai-business-promotion" element={<AIBusinessPromotion />} />
+        <Route path="ai-agent-talk-time" element={<AIAgentTalkTime />} />
+        <Route path="ai-automated-chatbot" element={<AIAutomatedChatbot />} />
+        <Route path="ai-addon-services" element={<AIAddonServices />} />
+        <Route path="industry-specific" element={<IndustrySpecificAI />} />
+      </Route>
       
       {/* Legal Pages */}
       <Route path="/privacy" element={<PrivacyPolicy />} />

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
 function Header() {
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 px-6 md:px-10 py-4 bg-white shadow-sm border-b border-black/5">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
@@ -23,12 +24,15 @@ function Header() {
               <span className="absolute left-0 -bottom-1 w-0 h-px transition-all duration-300 ease-in-out group-hover:w-full" style={{ backgroundColor: 'var(--primary-navy)' }}></span>
             </span>
           </Link>
-          <Link to="/services">
+          
+          {/* Services Link */}
+          <Link to="/services/ai-business-automation">
             <span className="relative font-medium tracking-wide group" style={{ color: 'var(--primary-navy)' }}>
               Services
               <span className="absolute left-0 -bottom-1 w-0 h-px transition-all duration-300 ease-in-out group-hover:w-full" style={{ backgroundColor: 'var(--primary-navy)' }}></span>
             </span>
           </Link>
+
           <Link to="/contact">
             <span className="relative font-medium tracking-wide group" style={{ color: 'var(--primary-navy)' }}>
               Contact

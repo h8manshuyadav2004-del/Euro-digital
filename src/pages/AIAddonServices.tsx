@@ -1,6 +1,4 @@
 import { motion } from "framer-motion";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 import FAQ from "../components/FAQ";
 import { getFAQsByServiceId } from "../data/faqData";
 
@@ -10,7 +8,7 @@ function AIAddonServices() {
     title: "AI add-on Services",
     description:
       "Our AI Add-on Services allow businesses to enhance their existing tools and platforms with advanced AI features. These add-ons are flexible, scalable, and designed to evolve with your business.",
-    image: "/backgroundImages/ai_services.png",
+    image: "/servicesImages/ai_addon.png",
     features: [
       "Custom AI integrations",
       "Speech-to-text and text-to-speech solutions",
@@ -19,15 +17,11 @@ function AIAddonServices() {
       "Workflow and system optimisation",
     ],
     detailedDescription: "EuroDigital ensures every add-on integrates smoothly into your current ecosystem.",
-    primaryButtonText: "Try For Free",
-    secondaryButtonText: "Learn More"
+    primaryButtonText: "Talk to Sales",
   };
 
   return (
-    <div className="min-h-screen bg-white">
-      <Header />
-      
-      <main className="pt-20">
+    <>
         {/* Service Content */}
         <section className="py-16 md:py-24" style={{ background: 'linear-gradient(to right, white 50%, rgba(224, 242, 254, 0.6) 50%)' }}>
           <div className="max-w-7xl mx-auto px-6 md:px-8">
@@ -66,22 +60,12 @@ function AIAddonServices() {
                 
                 <div className="flex gap-4 pt-4">
                   <button 
-                    className="rounded-full text-white font-medium px-6 py-2 shadow-lg transition-all hover:shadow-xl hover:scale-105"
+                    className="rounded-full text-black font-medium px-6 py-2 shadow-lg cursor-pointer "
                     style={{ backgroundColor: 'var(--primary-blue)' }}
                   >
                     {serviceData.primaryButtonText}
                   </button>
-                  <button 
-                    className="rounded-full font-medium px-6 py-2 transition-all hover:bg-gray-100"
-                    style={{ 
-                      borderWidth: '2px',
-                      borderColor: 'var(--primary-navy)',
-                      color: 'var(--primary-navy)',
-                      backgroundColor: 'transparent'
-                    }}
-                  >
-                    {serviceData.secondaryButtonText}
-                  </button>
+               
                 </div>
               </div>
 
@@ -100,13 +84,252 @@ function AIAddonServices() {
         </section>
 
         {/* Full Width Image Section */}
-        <section className="w-full max-w-[1425px] mx-auto rounded-3xl overflow-hidden mt-10">
-          <img
-            src="/servicesImages/Ai-business-automation1.png"
-            alt="AI add-on Services"
-            className="w-full h-auto object-cover"
-            style={{ maxHeight: '600px' }}
-          />
+        <section className="w-full max-w-7xl mx-auto px-6 md:px-12 py-12 md:py-16">
+          <div className="rounded-3xl overflow-hidden shadow-2xl">
+            <img
+              src="/servicesImages/Ai-business-automation1.png"
+              alt="AI add-on Services"
+              className="w-full h-auto object-cover"
+              style={{ maxHeight: '600px' }}
+            />
+          </div>
+        </section>
+
+        {/* Stacking Cards Section */}
+        <section className="py-16 md:py-24 bg-white">
+          <div className="max-w-7xl mx-auto px-6 md:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
+                Web-calling Real Time Agent
+              </h2>
+              <p className="text-lg text-slate-600 max-w-3xl mx-auto">
+                Beautiful analytics that update as your AI agents work
+              </p>
+            </div>
+
+            <div className="space-y-8">
+              {/* Card 1 - Web-calling Real Time Agent */}
+              <div
+                className="sticky top-24 bg-gradient-to-br from-cyan-50 to-blue-100 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
+                style={{ zIndex: 10 }}
+              >
+                <div className="grid md:grid-cols-2 gap-0">
+                  {/* Left Side - Content */}
+                  <div className="p-8 md:p-12 flex flex-col justify-center">
+                    <h3 className="text-4xl font-bold text-slate-800 mb-3">
+                      Web-calling Real Time Agent
+                    </h3>
+                    <p className="text-lg text-slate-600 mb-6">
+                      Beautiful analytics that update as your AI agents work
+                    </p>
+                    
+                    <div className="mb-8">
+                      <span className="text-6xl md:text-7xl font-bold text-slate-700">$500</span>
+                      <span className="text-base text-slate-600 ml-3">($29 / Month Subscription)</span>
+                    </div>
+
+                    <div className="space-y-4">
+                      <div className="flex items-center gap-3">
+                        <span className="text-green-500 text-2xl font-bold">✓</span>
+                        <span className="text-slate-700 text-lg">Voice Customisation</span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <span className="text-green-500 text-2xl font-bold">✓</span>
+                        <span className="text-slate-700 text-lg">Custom Integration</span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <span className="text-green-500 text-2xl font-bold">✓</span>
+                        <span className="text-slate-700 text-lg">Priority Support</span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <span className="text-green-500 text-2xl font-bold">✓</span>
+                        <span className="text-slate-700 text-lg">Calling Price 15 cents a Minutes</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Right Side - Image */}
+                  <div className="relative h-full min-h-[550px] md:min-h-[650px]">
+                    <img
+                      src="/backgroundImages/ai_agent.png"
+                      alt="Web-calling Real Time Agent"
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Card 2 - Advanced Real Time Agent */}
+              <div
+                className="sticky top-32 bg-gradient-to-br from-purple-50 to-pink-100 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
+                style={{ zIndex: 20 }}
+              >
+                <div className="grid md:grid-cols-2 gap-0">
+                  <div className="p-8 md:p-12 flex flex-col justify-center">
+                    <h3 className="text-4xl font-bold text-slate-800 mb-3">
+                      Advanced Real Time Agent
+                    </h3>
+                    <p className="text-lg text-slate-600 mb-6">
+                      For businesses scaling with AI communication
+                    </p>
+                    
+                    <div className="mb-8">
+                      <span className="text-6xl md:text-7xl font-bold text-slate-700">$799</span>
+                      <span className="text-xl text-slate-600 ml-3">Per Month</span>
+                    </div>
+
+                    <div className="space-y-4">
+                      <div className="flex items-center gap-3">
+                        <span className="text-green-500 text-2xl font-bold">✓</span>
+                        <span className="text-slate-700 text-lg">Everything in Basic Plan</span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <span className="text-green-500 text-2xl font-bold">✓</span>
+                        <span className="text-slate-700 text-lg">Multi-language Support</span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <span className="text-green-500 text-2xl font-bold">✓</span>
+                        <span className="text-slate-700 text-lg">Advanced Analytics</span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <span className="text-green-500 text-2xl font-bold">✓</span>
+                        <span className="text-slate-700 text-lg">API Integration</span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <span className="text-green-500 text-2xl font-bold">✓</span>
+                        <span className="text-slate-700 text-lg">Call Recording & Transcription</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="relative h-full min-h-[550px] md:min-h-[650px]">
+                    <img
+                      src="/backgroundImages/ai_bussiness.png"
+                      alt="Advanced Real Time Agent"
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Card 3 - Professional Real Time Agent */}
+              <div
+                className="sticky top-40 bg-gradient-to-br from-green-50 to-teal-100 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
+                style={{ zIndex: 30 }}
+              >
+                <div className="grid md:grid-cols-2 gap-0">
+                  <div className="p-8 md:p-12 flex flex-col justify-center">
+                    <h3 className="text-4xl font-bold text-slate-800 mb-3">
+                      Professional Real Time Agent
+                    </h3>
+                    <p className="text-lg text-slate-600 mb-6">
+                      For established businesses with high volume
+                    </p>
+                    
+                    <div className="mb-8">
+                      <span className="text-6xl md:text-7xl font-bold text-slate-700">$1,199</span>
+                      <span className="text-xl text-slate-600 ml-3">Per Month</span>
+                    </div>
+
+                    <div className="space-y-4">
+                      <div className="flex items-center gap-3">
+                        <span className="text-green-500 text-2xl font-bold">✓</span>
+                        <span className="text-slate-700 text-lg">Everything in Advanced Plan</span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <span className="text-green-500 text-2xl font-bold">✓</span>
+                        <span className="text-slate-700 text-lg">Unlimited Calling Minutes</span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <span className="text-green-500 text-2xl font-bold">✓</span>
+                        <span className="text-slate-700 text-lg">24/7 Support</span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <span className="text-green-500 text-2xl font-bold">✓</span>
+                        <span className="text-slate-700 text-lg">Custom Voice Training</span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <span className="text-green-500 text-2xl font-bold">✓</span>
+                        <span className="text-slate-700 text-lg">Dedicated Account Manager</span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <span className="text-green-500 text-2xl font-bold">✓</span>
+                        <span className="text-slate-700 text-lg">CRM Integration</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="relative h-full min-h-[550px] md:min-h-[650px]">
+                    <img
+                      src="/backgroundImages/ai_services.png"
+                      alt="Professional Real Time Agent"
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Card 4 - Enterprise Real Time Agent */}
+              <div
+                className="sticky top-48 bg-gradient-to-br from-orange-50 to-amber-100 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
+                style={{ zIndex: 40 }}
+              >
+                <div className="grid md:grid-cols-2 gap-0">
+                  <div className="p-8 md:p-12 flex flex-col justify-center">
+                    <h3 className="text-4xl font-bold text-slate-800 mb-3">
+                      Enterprise Real Time Agent
+                    </h3>
+                    <p className="text-lg text-slate-600 mb-6">
+                      For large enterprises with custom needs
+                    </p>
+                    
+                    <div className="mb-8">
+                      <span className="text-6xl md:text-7xl font-bold text-slate-700">Custom</span>
+                    </div>
+
+                    <div className="space-y-4">
+                      <div className="flex items-center gap-3">
+                        <span className="text-green-500 text-2xl font-bold">✓</span>
+                        <span className="text-slate-700 text-lg">Everything in Professional Plan</span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <span className="text-green-500 text-2xl font-bold">✓</span>
+                        <span className="text-slate-700 text-lg">Custom Infrastructure</span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <span className="text-green-500 text-2xl font-bold">✓</span>
+                        <span className="text-slate-700 text-lg">On-Premise Deployment</span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <span className="text-green-500 text-2xl font-bold">✓</span>
+                        <span className="text-slate-700 text-lg">Advanced Security Features</span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <span className="text-green-500 text-2xl font-bold">✓</span>
+                        <span className="text-slate-700 text-lg">SLA Guarantee</span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <span className="text-green-500 text-2xl font-bold">✓</span>
+                        <span className="text-slate-700 text-lg">Priority Processing</span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <span className="text-green-500 text-2xl font-bold">✓</span>
+                        <span className="text-slate-700 text-lg">Multi-region Support</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="relative h-full min-h-[550px] md:min-h-[650px]">
+                    <img
+                      src="/backgroundImages/ai_users.png"
+                      alt="Enterprise Real Time Agent"
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
 
         {/* FAQ Section */}
@@ -116,10 +339,7 @@ function AIAddonServices() {
             subtitle={getFAQsByServiceId(serviceData.id)!.subtitle}
           />
         )}
-      </main>
-
-      <Footer />
-    </div>
+    </>
   );
 }
 

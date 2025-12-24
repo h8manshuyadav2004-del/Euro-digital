@@ -1,128 +1,261 @@
 import { motion } from "framer-motion";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 import FAQ from "../components/FAQ";
 import { getFAQsByServiceId } from "../data/faqData";
 
 function IndustrySpecificAI() {
-  const serviceData = {
-    id: "industry-specific",
-    title: "Industry Specific AI Use Cases",
-    description:
-      "We understand that every industry has unique challenges. That's why EuroDigital delivers AI solutions specifically designed for different business domains, ensuring practical and measurable impact.",
-    image: "/backgroundImages/ai_users.png",
-    features: [
-      "Healthcare: Patient management and diagnostic assistance systems",
-      "Retail: Inventory optimization and personalized shopping experiences",
-      "Finance: Fraud detection and risk assessment solutions",
-      "Manufacturing: Predictive maintenance and quality control",
-      "Education: Personalized learning and student performance tracking",
-      "Hospitality: Guest experience management and booking automation"
-    ],
-    detailedDescription: "Every industry faces unique challenges that require specialized solutions. Our industry-specific AI implementations are built on deep domain expertise and proven methodologies.",
-    primaryButtonText: "Try For Free",
-    secondaryButtonText: "Learn More"
-  };
-
   return (
-    <div className="min-h-screen bg-white">
-      <Header />
-      
-      <main className="pt-20">
-        {/* Service Content */}
-        <section className="py-16 md:py-24" style={{ background: 'linear-gradient(to right, white 50%, rgba(224, 242, 254, 0.6) 50%)' }}>
-          <div className="max-w-7xl mx-auto px-6 md:px-8">
+    <>
+        {/* Hero Section with Full Background Image */}
+        <section className="relative min-h-[600px] flex items-center justify-center overflow-hidden">
+          {/* Background Image with Overlay */}
+          <div className="absolute inset-0">
+            <img
+              src="/backgroundImages/ai_users.png"
+              alt="Industry Specific AI Background"
+              className="w-full h-full object-cover"
+            />
+            {/* Blue Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-900/70 to-blue-600/60"></div>
+          </div>
+
+          {/* Content */}
+          <div className="relative z-10 max-w-4xl mx-auto px-6 md:px-12 text-center">
+            {/* Icon Circle */}
             <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+              className="inline-flex items-center justify-center w-24 h-24 bg-white rounded-full mb-8 shadow-xl"
+            >
+              <svg className="w-12 h-12 text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+              </svg>
+            </motion.div>
+
+            {/* Heading */}
+            <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5 }}
-              className="grid md:grid-cols-2 gap-12 items-center"
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
             >
-              <div className="space-y-3">
-                <h1 className="text-4xl md:text-5xl font-semibold" style={{ color: 'var(--primary-navy)' }}>
-                  {serviceData.title}
-                </h1>
-                <p className="text-lg leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-                  {serviceData.description}
-                </p>
-                
-                {serviceData.features && (
-                  <div className="space-y-3 ml-4">
-                    <ul className="space-y-2">
-                        {serviceData.features.map((feature, idx) => (
-                          <li key={idx} className="flex items-start gap-2">
-                            <span className="text-xs mt-1" style={{ color: 'var(--text-tertiary)' }}>●</span>
-                            <span style={{ color: 'var(--text-secondary)' }}>{feature}</span>
-                          </li>
-                        ))}
-                    </ul>
-                  </div>
-                )}
-                {serviceData.detailedDescription && (
-                  <p className="text-base leading-relaxed" style={{ color: 'var(--text-tertiary)' }}>
-                    {serviceData.detailedDescription}
-                  </p>
-                )}
-                
-                <div className="flex gap-4 pt-4">
-                  <button 
-                    className="rounded-full text-white font-medium px-6 py-2 shadow-lg transition-all hover:shadow-xl hover:scale-105"
-                    style={{ backgroundColor: 'var(--primary-blue)' }}
-                  >
-                    {serviceData.primaryButtonText}
-                  </button>
-                  <button 
-                    className="rounded-full font-medium px-6 py-2 transition-all hover:bg-gray-100"
-                    style={{ 
-                      borderWidth: '2px',
-                      borderColor: 'var(--primary-navy)',
-                      color: 'var(--primary-navy)',
-                      backgroundColor: 'transparent'
-                    }}
-                  >
-                    {serviceData.secondaryButtonText}
-                  </button>
-                </div>
-              </div>
+              Industry Specific AI Use Cases
+            </motion.h1>
 
-              <div className="relative ">
-                <motion.img
-                  src={serviceData.image}
-                  alt={serviceData.title}
-                  className="w-full h-auto rounded-2xl shadow-2xl"
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5 }}
-                />
-              </div>
-            </motion.div>
+            {/* Description */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed"
+            >
+              We understand that every industry has unique challenges. That's why EuroDigital delivers AI solutions specifically designed for different business domains, ensuring practical and measurable impact.
+            </motion.p>
           </div>
         </section>
 
-        {/* Full Width Image Section */}
-        <section className="w-full max-w-[1425px] mx-auto rounded-3xl overflow-hidden mt-10">
-          <img
-            src="/servicesImages/Ai-business-automation1.png"
-            alt="Industry Specific AI Use Cases"
-            className="w-full h-auto object-cover"
-            style={{ maxHeight: '600px' }}
-          />
+        {/* Industry Use Cases Section */}
+        <section className="py-16 md:py-24 bg-white">
+          <div className="max-w-7xl mx-auto px-6 md:px-12">
+            {/* Heading */}
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
+                Everything Your Personal Secretary Should Do
+              </h2>
+              <p className="text-lg text-slate-600 max-w-3xl mx-auto">
+                Baseten delivers the infrastructure, tooling, and expertise needed to bring great AI products to market - fast.
+              </p>
+            </div>
+
+            {/* Industry Cards Grid */}
+            <div className="grid md:grid-cols-3 gap-8">
+              {/* Real Estate */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="bg-white hover:bg-cyan-50 rounded-2xl p-8 shadow-md hover:shadow-xl transition-all duration-300"
+              >
+                <div className="inline-flex items-center justify-center w-14 h-14 bg-green-500 rounded-lg mb-6">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold text-slate-800 mb-4">Real Estate</h3>
+                <p className="text-slate-600 mb-6 leading-relaxed">
+                  AI cold calling, automated follow-ups, and chatbots across social media and your website—designed to capture property leads instantly.
+                </p>
+                <a href="#" className="inline-flex items-center text-cyan-600 font-semibold hover:text-cyan-700">
+                  Learn More
+                  <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </a>
+              </motion.div>
+
+              {/* Healthcare */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="bg-white hover:bg-cyan-50 rounded-2xl p-8 shadow-md hover:shadow-xl transition-all duration-300"
+              >
+                <div className="inline-flex items-center justify-center w-14 h-14 bg-green-500 rounded-lg mb-6">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold text-slate-800 mb-4">Healthcare</h3>
+                <p className="text-slate-600 mb-6 leading-relaxed">
+                  AI handles patient calls with automated appointment confirmations, while a support bot answers queries and transfers calls instantly.
+                </p>
+                <a href="#" className="inline-flex items-center text-cyan-600 font-semibold hover:text-cyan-700">
+                  Learn More
+                  <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </a>
+              </motion.div>
+
+              {/* Consultancy */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="bg-white hover:bg-cyan-50 rounded-2xl p-8 shadow-md hover:shadow-xl transition-all duration-300"
+              >
+                <div className="inline-flex items-center justify-center w-14 h-14 bg-green-500 rounded-lg mb-6">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold text-slate-800 mb-4">Consultancy</h3>
+                <p className="text-slate-600 mb-6 leading-relaxed">
+                  AI redirects incoming calls, sends automated follow-ups, and a support bot answers client queries and transfers calls to your team as needed.
+                </p>
+                <a href="#" className="inline-flex items-center text-cyan-600 font-semibold hover:text-cyan-700">
+                  Learn More
+                  <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </a>
+              </motion.div>
+
+              {/* SAAS Company */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="bg-white hover:bg-cyan-50 rounded-2xl p-8 shadow-md hover:shadow-xl transition-all duration-300"
+              >
+                <div className="inline-flex items-center justify-center w-14 h-14 bg-green-500 rounded-lg mb-6">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold text-slate-800 mb-4">SAAS Company</h3>
+                <p className="text-slate-600 mb-6 leading-relaxed">
+                  AI boosts SaaS growth with sales calling and follow-ups, multi-channel lead generation, and a support bot that handles queries and transfers calls instantly.
+                </p>
+                <a href="#" className="inline-flex items-center text-cyan-600 font-semibold hover:text-cyan-700">
+                  Learn More
+                  <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </a>
+              </motion.div>
+
+              {/* Insurance Company */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                className="bg-white hover:bg-cyan-50 rounded-2xl p-8 shadow-md hover:shadow-xl transition-all duration-300"
+              >
+                <div className="inline-flex items-center justify-center w-14 h-14 bg-green-500 rounded-lg mb-6">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.040A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold text-slate-800 mb-4">Insurance Company</h3>
+                <p className="text-slate-600 mb-6 leading-relaxed">
+                  AI automates insurance sales with a pitch calling bot and follow-up workflows, while an AI receptionist handles customer inquiries and guides clients instantly.
+                </p>
+                <a href="#" className="inline-flex items-center text-cyan-600 font-semibold hover:text-cyan-700">
+                  Learn More
+                  <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </a>
+              </motion.div>
+
+              {/* Banking System */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.5 }}
+                className="bg-white hover:bg-cyan-50 rounded-2xl p-8 shadow-md hover:shadow-xl transition-all duration-300"
+              >
+                <div className="inline-flex items-center justify-center w-14 h-14 bg-green-500 rounded-lg mb-6">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold text-slate-800 mb-4">Banking System</h3>
+                <p className="text-slate-600 mb-6 leading-relaxed">
+                  AI handles daily customer chats, automated SMS/email offers, credit card promotion calls, and debt recovery for smoother banking operations.
+                </p>
+                <a href="#" className="inline-flex items-center text-cyan-600 font-semibold hover:text-cyan-700">
+                  Learn More
+                  <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </a>
+              </motion.div>
+
+              {/* Solar Companies */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.6 }}
+                className="bg-white hover:bg-cyan-50 rounded-2xl p-8 shadow-md hover:shadow-xl transition-all duration-300"
+              >
+                <div className="inline-flex items-center justify-center w-14 h-14 bg-green-500 rounded-lg mb-6">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold text-slate-800 mb-4">Solar Companies</h3>
+                <p className="text-slate-600 mb-6 leading-relaxed">
+                  AI captures solar leads through chatbots and calling, while a cold-calling bot with automated follow-ups helps convert them faster.
+                </p>
+                <a href="#" className="inline-flex items-center text-cyan-600 font-semibold hover:text-cyan-700">
+                  Learn More
+                  <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </a>
+              </motion.div>
+            </div>
+          </div>
         </section>
 
         {/* FAQ Section */}
-        {getFAQsByServiceId(serviceData.id) && (
+        {getFAQsByServiceId("industry-specific") && (
           <FAQ
-            faqs={getFAQsByServiceId(serviceData.id)!.faqs}
-            subtitle={getFAQsByServiceId(serviceData.id)!.subtitle}
+            faqs={getFAQsByServiceId("industry-specific")!.faqs}
+            subtitle={getFAQsByServiceId("industry-specific")!.subtitle}
           />
         )}
-      </main>
-
-      <Footer />
-    </div>
+    </>
   );
 }
 
 export default IndustrySpecificAI;
-

@@ -195,11 +195,11 @@ function Footer() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-white py-16 md:py-20" style={{ borderTop: '1px solid rgba(24, 182, 227, 0.2)' }}>
+      <footer className="bg-white py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           {/* Top section - Logo */}
           <div 
-            className="flex items-center justify-between "
+            className="flex items-center justify-between pb-8"
             style={{ borderBottom: '1px solid rgba(24, 182, 227, 0.15)' }}
           >
             <Link to="/">
